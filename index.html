@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tim Yuen | Professional Tennis Coach</title>
+    <title data-i18n="page.title">Tim Yuen | Professional Tennis Coach</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -100,6 +100,38 @@
             flex-direction: column;
             cursor: pointer;
             gap: 5px;
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 0.4rem;
+            margin-left: 1.5rem;
+            align-items: center;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.35);
+            color: rgba(255,255,255,0.85);
+            font-family: inherit;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .lang-btn:hover {
+            color: var(--gold-light);
+            border-color: var(--gold);
+        }
+
+        .lang-btn.active {
+            background: var(--gold);
+            color: var(--green-dark);
+            border-color: var(--gold);
         }
 
         .nav-hamburger span {
@@ -715,6 +747,16 @@
                 display: flex;
             }
 
+            .lang-switch {
+                margin-left: auto;
+                margin-right: 1rem;
+            }
+
+            .lang-btn {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.72rem;
+            }
+
             /* Hamburger animation */
             .nav-hamburger.active span:nth-child(1) {
                 transform: rotate(45deg) translate(5px, 5px);
@@ -986,12 +1028,17 @@
         <div class="nav-container">
             <a href="#" class="nav-logo">Tim Yuen</a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#about">About</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#video">Video</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about" data-i18n="nav.about">About</a></li>
+                <li><a href="#achievements" data-i18n="nav.achievements">Achievements</a></li>
+                <li><a href="#gallery" data-i18n="nav.gallery">Gallery</a></li>
+                <li><a href="#video" data-i18n="nav.video">Video</a></li>
+                <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
             </ul>
+            <div class="lang-switch" id="langSwitch">
+                <button type="button" class="lang-btn" data-lang="en">EN</button>
+                <button type="button" class="lang-btn" data-lang="zh-CN">简</button>
+                <button type="button" class="lang-btn" data-lang="zh-TW">繁</button>
+            </div>
             <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
@@ -1004,10 +1051,10 @@
     <section class="hero" id="home">
         <div class="hero-bg"></div>
         <div class="hero-content">
-            <p class="hero-subtitle">Professional Tennis Coach</p>
-            <h1 class="hero-title">Tim Yuen</h1>
-            <p class="hero-tagline">ITF professional player and certified coach with 25+ years of experience. Elevating players from beginners to tournament competitors.</p>
-            <a href="#contact" class="hero-cta">Get in Touch</a>
+            <p class="hero-subtitle" data-i18n="hero.subtitle">Professional Tennis Coach</p>
+            <h1 class="hero-title" data-i18n="hero.title">Tim Yuen</h1>
+            <p class="hero-tagline" data-i18n="hero.tagline">ITF professional player and certified coach with 25+ years of experience. Elevating players from beginners to tournament competitors.</p>
+            <a href="#contact" class="hero-cta" data-i18n="hero.cta">Get in Touch</a>
         </div>
         <div class="scroll-indicator">
             <span></span>
@@ -1017,8 +1064,8 @@
     <!-- About Section -->
     <section class="about" id="about">
         <div class="section-header">
-            <p class="section-label">Who I Am</p>
-            <h2 class="section-title">About Me</h2>
+            <p class="section-label" data-i18n="about.label">Who I Am</p>
+            <h2 class="section-title" data-i18n="about.title">About Me</h2>
             <div class="section-divider"></div>
         </div>
         <div class="about-grid fade-in">
@@ -1026,26 +1073,26 @@
                 <img src="resources/wimbledon-sign.jpg" alt="Tim Yuen at Wimbledon Championships">
             </div>
             <div class="about-text">
-                <h3>25+ Years of Coaching Excellence</h3>
-                <p>I am a current ITF professional player and certified tennis coach with qualifications from both the <strong>British Tennis Coaches Association (BTCA)</strong> and the <strong>Australia Tennis Professional Coaches Association</strong>.</p>
-                <p>Whether you're picking up a racket for the first time or preparing for tournament play, I provide tailored coaching for children and adults at every level.</p>
+                <h3 data-i18n="about.heading">25+ Years of Coaching Excellence</h3>
+                <p data-i18n="about.p1" data-i18n-html="1">I am a current ITF professional player and certified tennis coach with qualifications from both the <strong>British Tennis Coaches Association (BTCA)</strong> and the <strong>Australia Tennis Professional Coaches Association</strong>.</p>
+                <p data-i18n="about.p2">Whether you're picking up a racket for the first time or preparing for tournament play, I provide tailored coaching for children and adults at every level.</p>
                 <div class="languages">
-                    <span class="lang-badge">English</span>
-                    <span class="lang-badge">Cantonese</span>
-                    <span class="lang-badge">Mandarin</span>
+                    <span class="lang-badge" data-i18n="lang.english">English</span>
+                    <span class="lang-badge" data-i18n="lang.cantonese">Cantonese</span>
+                    <span class="lang-badge" data-i18n="lang.mandarin">Mandarin</span>
                 </div>
                 <div class="about-stats">
                     <div class="stat-item">
                         <div class="stat-number">25+</div>
-                        <div class="stat-label">Years Coaching</div>
+                        <div class="stat-label" data-i18n="stat.years">Years Coaching</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">3</div>
-                        <div class="stat-label">Languages</div>
+                        <div class="stat-label" data-i18n="stat.languages">Languages</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">2</div>
-                        <div class="stat-label">Certifications</div>
+                        <div class="stat-label" data-i18n="stat.certs">Certifications</div>
                     </div>
                 </div>
             </div>
@@ -1055,75 +1102,75 @@
     <!-- Achievements Section -->
     <section class="achievements" id="achievements">
         <div class="section-header">
-            <p class="section-label">Track Record</p>
-            <h2 class="section-title">Achievements</h2>
+            <p class="section-label" data-i18n="ach.label">Track Record</p>
+            <h2 class="section-title" data-i18n="ach.title">Achievements</h2>
             <div class="section-divider"></div>
         </div>
         <div class="achievements-grid">
             <div class="achievement-card fade-in">
                 <div class="achievement-year">2025</div>
-                <div class="achievement-title">ITF Masters Wimbledon (Closed)</div>
-                <div class="achievement-detail">Men's Singles R32</div>
-                <span class="achievement-highlight">Wimbledon</span>
+                <div class="achievement-title" data-i18n="ach.t.itfWimbledon">ITF Masters Wimbledon (Closed)</div>
+                <div class="achievement-detail" data-i18n="ach.d.singlesR32">Men's Singles R32</div>
+                <span class="achievement-highlight" data-i18n="ach.b.wimbledon">Wimbledon</span>
             </div>
             <div class="achievement-card fade-in">
                 <div class="achievement-year">2025</div>
-                <div class="achievement-title">World Masters Games, Taiwan</div>
-                <div class="achievement-detail">Men's Singles Quarter-finalist</div>
+                <div class="achievement-title" data-i18n="ach.t.worldMasters">World Masters Games, Taiwan</div>
+                <div class="achievement-detail" data-i18n="ach.d.singlesQF">Men's Singles Quarter-finalist</div>
             </div>
             <div class="achievement-card fade-in">
                 <div class="achievement-year">2025</div>
-                <div class="achievement-title">ETA Shenzhen 188th</div>
-                <div class="achievement-detail">Singles Runner-up</div>
+                <div class="achievement-title" data-i18n="ach.t.etaSZ188">ETA Shenzhen 188th</div>
+                <div class="achievement-detail" data-i18n="ach.d.singlesRU">Singles Runner-up</div>
             </div>
             <div class="achievement-card fade-in">
                 <div class="achievement-year">2025</div>
-                <div class="achievement-title">ETA Shenzhen 181st</div>
-                <div class="achievement-detail">Singles Runner-up</div>
+                <div class="achievement-title" data-i18n="ach.t.etaSZ181">ETA Shenzhen 181st</div>
+                <div class="achievement-detail" data-i18n="ach.d.singlesRU">Singles Runner-up</div>
             </div>
             <div class="achievement-card fade-in">
                 <div class="achievement-year">2024</div>
-                <div class="achievement-title">ITF Masters Shenzhen</div>
-                <div class="achievement-detail">Men's Singles Quarter-finalist</div>
+                <div class="achievement-title" data-i18n="ach.t.itfShenzhen">ITF Masters Shenzhen</div>
+                <div class="achievement-detail" data-i18n="ach.d.singlesQF">Men's Singles Quarter-finalist</div>
             </div>
             <div class="achievement-card fade-in">
                 <div class="achievement-year">2024</div>
-                <div class="achievement-title">ITF Masters Pattaya</div>
-                <div class="achievement-detail">Men's Singles Quarter-finalist</div>
+                <div class="achievement-title" data-i18n="ach.t.itfPattaya">ITF Masters Pattaya</div>
+                <div class="achievement-detail" data-i18n="ach.d.singlesQF">Men's Singles Quarter-finalist</div>
             </div>
             <div class="achievement-card fade-in">
                 <div class="achievement-year">2022</div>
-                <div class="achievement-title">FCTC Small League Division A</div>
-                <div class="achievement-detail">Champions</div>
-                <span class="achievement-highlight">Champion</span>
+                <div class="achievement-title" data-i18n="ach.t.fctcA">FCTC Small League Division A</div>
+                <div class="achievement-detail" data-i18n="ach.d.champions">Champions</div>
+                <span class="achievement-highlight" data-i18n="ach.b.champion">Champion</span>
             </div>
             <div class="achievement-card fade-in">
                 <div class="achievement-year">2019</div>
-                <div class="achievement-title">FCTC Small League Division B</div>
-                <div class="achievement-detail">Champions</div>
-                <span class="achievement-highlight">Champion</span>
+                <div class="achievement-title" data-i18n="ach.t.fctcB">FCTC Small League Division B</div>
+                <div class="achievement-detail" data-i18n="ach.d.champions">Champions</div>
+                <span class="achievement-highlight" data-i18n="ach.b.champion">Champion</span>
             </div>
             <div class="achievement-card fade-in">
                 <div class="achievement-year">2006</div>
-                <div class="achievement-title">LTA Frome Tennis Tournament</div>
-                <div class="achievement-detail">Finalist</div>
+                <div class="achievement-title" data-i18n="ach.t.ltaFrome">LTA Frome Tennis Tournament</div>
+                <div class="achievement-detail" data-i18n="ach.d.finalist">Finalist</div>
             </div>
             <div class="achievement-card fade-in">
                 <div class="achievement-year">2003</div>
-                <div class="achievement-title">LTA Downend & Fishpond</div>
-                <div class="achievement-detail">Champion</div>
-                <span class="achievement-highlight">Champion</span>
+                <div class="achievement-title" data-i18n="ach.t.ltaDownend">LTA Downend & Fishpond</div>
+                <div class="achievement-detail" data-i18n="ach.d.champion">Champion</div>
+                <span class="achievement-highlight" data-i18n="ach.b.champion">Champion</span>
             </div>
             <div class="achievement-card fade-in">
                 <div class="achievement-year">2000</div>
-                <div class="achievement-title">LTA Knowle 18 & Under Boys</div>
-                <div class="achievement-detail">Champion</div>
-                <span class="achievement-highlight">Champion</span>
+                <div class="achievement-title" data-i18n="ach.t.ltaKnowle">LTA Knowle 18 & Under Boys</div>
+                <div class="achievement-detail" data-i18n="ach.d.champion">Champion</div>
+                <span class="achievement-highlight" data-i18n="ach.b.champion">Champion</span>
             </div>
             <div class="achievement-card fade-in">
                 <div class="achievement-year">1999</div>
-                <div class="achievement-title">LTA Downend & Fishpond</div>
-                <div class="achievement-detail">Finalist</div>
+                <div class="achievement-title" data-i18n="ach.t.ltaDownend">LTA Downend & Fishpond</div>
+                <div class="achievement-detail" data-i18n="ach.d.finalist">Finalist</div>
             </div>
         </div>
 
@@ -1138,50 +1185,50 @@
     <!-- Gallery Section -->
     <section class="gallery" id="gallery">
         <div class="section-header">
-            <p class="section-label">In Action</p>
-            <h2 class="section-title">Gallery</h2>
+            <p class="section-label" data-i18n="gal.label">In Action</p>
+            <h2 class="section-title" data-i18n="gal.title">Gallery</h2>
             <div class="section-divider"></div>
         </div>
         <div class="gallery-grid">
             <div class="gallery-item wide" onclick="openLightbox(this)">
                 <img src="resources/practice-at-wimbledon.jpg" alt="Practice at Wimbledon">
-                <div class="overlay"><span class="overlay-text">Practice at Wimbledon</span></div>
+                <div class="overlay"><span class="overlay-text" data-i18n="gal.practiceWimbledon">Practice at Wimbledon</span></div>
             </div>
             <div class="gallery-item" onclick="openLightbox(this)">
                 <img src="resources/serve-grass-1.jpg" alt="Serving on grass court">
-                <div class="overlay"><span class="overlay-text">Grass Court Serve</span></div>
+                <div class="overlay"><span class="overlay-text" data-i18n="gal.grassServe">Grass Court Serve</span></div>
             </div>
             <div class="gallery-item" onclick="openLightbox(this)">
                 <img src="resources/serve-grass-2.jpg" alt="Serve Impact with Ball">
-                <div class="overlay"><span class="overlay-text">Serve Impact with Ball</span></div>
+                <div class="overlay"><span class="overlay-text" data-i18n="gal.serveImpact">Serve Impact with Ball</span></div>
             </div>
             <div class="gallery-item" onclick="openLightbox(this)">
                 <img src="resources/slice-backhand-grass.jpg" alt="Slice Backhand on Grass">
-                <div class="overlay"><span class="overlay-text">Slice Backhand on Grass</span></div>
+                <div class="overlay"><span class="overlay-text" data-i18n="gal.sliceBackhand">Slice Backhand on Grass</span></div>
             </div>
             <div class="gallery-item" onclick="openLightbox(this)">
                 <img src="resources/serve-grass-3.jpg" alt="Serve follow through on grass">
-                <div class="overlay"><span class="overlay-text">Serve Follow-through</span></div>
+                <div class="overlay"><span class="overlay-text" data-i18n="gal.serveFollow">Serve Follow-through</span></div>
             </div>
             <div class="gallery-item wide" onclick="openLightbox(this)">
                 <img src="resources/hongkong-stadium.jpg" alt="Playing at Hong Kong tennis stadium">
-                <div class="overlay"><span class="overlay-text">Hong Kong Tennis Stadium</span></div>
+                <div class="overlay"><span class="overlay-text" data-i18n="gal.hkStadium">Hong Kong Tennis Stadium</span></div>
             </div>
             <div class="gallery-item" onclick="openLightbox(this)">
                 <img src="resources/serve-hardcourt.jpg" alt="Serving on hard court">
-                <div class="overlay"><span class="overlay-text">Hard Court Serve</span></div>
+                <div class="overlay"><span class="overlay-text" data-i18n="gal.hardServe">Hard Court Serve</span></div>
             </div>
             <div class="gallery-item" onclick="openLightbox(this)">
                 <img src="resources/serve-followthrough-hardcourt.jpg" alt="Serve follow through on hard court">
-                <div class="overlay"><span class="overlay-text">Hard Court Action</span></div>
+                <div class="overlay"><span class="overlay-text" data-i18n="gal.hardAction">Hard Court Action</span></div>
             </div>
             <div class="gallery-item" onclick="openLightbox(this)">
                 <img src="resources/celebration-hardcourt.jpg" alt="Match celebration">
-                <div class="overlay"><span class="overlay-text">Match Point</span></div>
+                <div class="overlay"><span class="overlay-text" data-i18n="gal.matchPoint">Match Point</span></div>
             </div>
             <div class="gallery-item" onclick="openLightbox(this)">
                 <img src="resources/hero-wimbledon-courts.jpg" alt="At Wimbledon courts">
-                <div class="overlay"><span class="overlay-text">Wimbledon Courts</span></div>
+                <div class="overlay"><span class="overlay-text" data-i18n="gal.wimbledonCourts">Wimbledon Courts</span></div>
             </div>
         </div>
     </section>
@@ -1195,8 +1242,8 @@
     <!-- Video Section -->
     <section class="video-section" id="video">
         <div class="section-header">
-            <p class="section-label">Watch</p>
-            <h2 class="section-title">Highlights</h2>
+            <p class="section-label" data-i18n="vid.label">Watch</p>
+            <h2 class="section-title" data-i18n="vid.title">Highlights</h2>
             <div class="section-divider"></div>
         </div>
         <div class="video-container fade-in">
@@ -1210,16 +1257,16 @@
     <!-- Contact / Social Section -->
     <section class="contact" id="contact">
         <div class="section-header">
-            <p class="section-label">Let's Connect</p>
-            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-label" data-i18n="con.label">Let's Connect</p>
+            <h2 class="section-title" data-i18n="con.title">Get in Touch</h2>
             <div class="section-divider"></div>
         </div>
-        <p class="contact-intro">
+        <p class="contact-intro" data-i18n="con.intro">
             Beginners to tournament players are welcome, whether children or adults.
             Follow me on social media for my latest tennis content, tips, and match updates.
         </p>
         <div class="contact-handle">
-            <span>Find me everywhere at</span>
+            <span data-i18n="con.findme">Find me everywhere at</span>
             @tenniscoachhk
         </div>
         <div class="social-links">
@@ -1248,7 +1295,7 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer data-i18n="footer.text" data-i18n-html="1">
         &copy; 2025 Tim Yuen Tennis. All rights reserved.
     </footer>
 
@@ -1303,6 +1350,199 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeLightbox();
         });
+
+        // i18n translations
+        const translations = {
+            'en': {
+                'page.title': 'Tim Yuen | Professional Tennis Coach',
+                'nav.about': 'About', 'nav.achievements': 'Achievements', 'nav.gallery': 'Gallery', 'nav.video': 'Video', 'nav.contact': 'Contact',
+                'hero.subtitle': 'Professional Tennis Coach',
+                'hero.title': 'Tim Yuen',
+                'hero.tagline': 'ITF professional player and certified coach with 25+ years of experience. Elevating players from beginners to tournament competitors.',
+                'hero.cta': 'Get in Touch',
+                'about.label': 'Who I Am', 'about.title': 'About Me',
+                'about.heading': '25+ Years of Coaching Excellence',
+                'about.p1': 'I am a current ITF professional player and certified tennis coach with qualifications from both the <strong>British Tennis Coaches Association (BTCA)</strong> and the <strong>Australia Tennis Professional Coaches Association</strong>.',
+                'about.p2': "Whether you're picking up a racket for the first time or preparing for tournament play, I provide tailored coaching for children and adults at every level.",
+                'lang.english': 'English', 'lang.cantonese': 'Cantonese', 'lang.mandarin': 'Mandarin',
+                'stat.years': 'Years Coaching', 'stat.languages': 'Languages', 'stat.certs': 'Certifications',
+                'ach.label': 'Track Record', 'ach.title': 'Achievements',
+                'ach.t.itfWimbledon': 'ITF Masters Wimbledon (Closed)',
+                'ach.t.worldMasters': 'World Masters Games, Taiwan',
+                'ach.t.etaSZ188': 'ETA Shenzhen 188th',
+                'ach.t.etaSZ181': 'ETA Shenzhen 181st',
+                'ach.t.itfShenzhen': 'ITF Masters Shenzhen',
+                'ach.t.itfPattaya': 'ITF Masters Pattaya',
+                'ach.t.fctcA': 'FCTC Small League Division A',
+                'ach.t.fctcB': 'FCTC Small League Division B',
+                'ach.t.ltaFrome': 'LTA Frome Tennis Tournament',
+                'ach.t.ltaDownend': 'LTA Downend & Fishpond',
+                'ach.t.ltaKnowle': 'LTA Knowle 18 & Under Boys',
+                'ach.d.singlesR32': "Men's Singles R32",
+                'ach.d.singlesQF': "Men's Singles Quarter-finalist",
+                'ach.d.singlesRU': 'Singles Runner-up',
+                'ach.d.champions': 'Champions',
+                'ach.d.champion': 'Champion',
+                'ach.d.finalist': 'Finalist',
+                'ach.b.wimbledon': 'Wimbledon', 'ach.b.champion': 'Champion',
+                'gal.label': 'In Action', 'gal.title': 'Gallery',
+                'gal.practiceWimbledon': 'Practice at Wimbledon',
+                'gal.grassServe': 'Grass Court Serve',
+                'gal.serveImpact': 'Serve Impact with Ball',
+                'gal.sliceBackhand': 'Slice Backhand on Grass',
+                'gal.serveFollow': 'Serve Follow-through',
+                'gal.hkStadium': 'Hong Kong Tennis Stadium',
+                'gal.hardServe': 'Hard Court Serve',
+                'gal.hardAction': 'Hard Court Action',
+                'gal.matchPoint': 'Match Point',
+                'gal.wimbledonCourts': 'Wimbledon Courts',
+                'vid.label': 'Watch', 'vid.title': 'Highlights',
+                'con.label': "Let's Connect", 'con.title': 'Get in Touch',
+                'con.intro': 'Beginners to tournament players are welcome, whether children or adults. Follow me on social media for my latest tennis content, tips, and match updates.',
+                'con.findme': 'Find me everywhere at',
+                'footer.text': '&copy; 2025 Tim Yuen Tennis. All rights reserved.'
+            },
+            'zh-CN': {
+                'page.title': 'Tim Yuen | 职业网球教练',
+                'nav.about': '关于', 'nav.achievements': '成就', 'nav.gallery': '相册', 'nav.video': '视频', 'nav.contact': '联系',
+                'hero.subtitle': '职业网球教练',
+                'hero.title': 'Tim Yuen',
+                'hero.tagline': 'ITF职业球员及认证教练,拥有25年以上执教经验。从初学者到赛事选手,助您全面提升。',
+                'hero.cta': '联系我',
+                'about.label': '关于我', 'about.title': '个人简介',
+                'about.heading': '25年以上卓越执教经验',
+                'about.p1': '我是现役ITF职业球员及认证网球教练,持有<strong>英国网球教练协会(BTCA)</strong>及<strong>澳大利亚职业网球教练协会</strong>的双重认证。',
+                'about.p2': '无论您是初次拿起球拍,还是备战正式比赛,我都能为儿童及成人提供各级别的专属定制课程。',
+                'lang.english': '英语', 'lang.cantonese': '粤语', 'lang.mandarin': '普通话',
+                'stat.years': '执教年数', 'stat.languages': '语言', 'stat.certs': '专业认证',
+                'ach.label': '战绩记录', 'ach.title': '比赛成就',
+                'ach.t.itfWimbledon': 'ITF大师赛 温布尔登(封闭赛)',
+                'ach.t.worldMasters': '世界大师运动会(台湾)',
+                'ach.t.etaSZ188': 'ETA深圳第188站',
+                'ach.t.etaSZ181': 'ETA深圳第181站',
+                'ach.t.itfShenzhen': 'ITF大师赛 深圳',
+                'ach.t.itfPattaya': 'ITF大师赛 芭堤雅',
+                'ach.t.fctcA': 'FCTC小型联赛 A组',
+                'ach.t.fctcB': 'FCTC小型联赛 B组',
+                'ach.t.ltaFrome': 'LTA 弗罗姆网球公开赛',
+                'ach.t.ltaDownend': 'LTA Downend & Fishpond',
+                'ach.t.ltaKnowle': 'LTA Knowle 18岁以下男子组',
+                'ach.d.singlesR32': '男单32强',
+                'ach.d.singlesQF': '男单八强',
+                'ach.d.singlesRU': '单打亚军',
+                'ach.d.champions': '冠军',
+                'ach.d.champion': '冠军',
+                'ach.d.finalist': '亚军',
+                'ach.b.wimbledon': '温布尔登', 'ach.b.champion': '冠军',
+                'gal.label': '赛场风采', 'gal.title': '相册',
+                'gal.practiceWimbledon': '温布尔登训练',
+                'gal.grassServe': '草地发球',
+                'gal.serveImpact': '发球击球瞬间',
+                'gal.sliceBackhand': '草地反手切削',
+                'gal.serveFollow': '发球跟进动作',
+                'gal.hkStadium': '香港网球中心',
+                'gal.hardServe': '硬地发球',
+                'gal.hardAction': '硬地击球',
+                'gal.matchPoint': '赛点时刻',
+                'gal.wimbledonCourts': '温布尔登球场',
+                'vid.label': '观看', 'vid.title': '精彩集锦',
+                'con.label': '联系我', 'con.title': '取得联系',
+                'con.intro': '欢迎初学者及参赛选手,不论儿童或成人。关注我的社交媒体,获取最新网球内容、技巧与赛事动态。',
+                'con.findme': '社交平台账号',
+                'footer.text': '&copy; 2025 Tim Yuen Tennis 版权所有。'
+            },
+            'zh-TW': {
+                'page.title': 'Tim Yuen | 職業網球教練',
+                'nav.about': '關於', 'nav.achievements': '成就', 'nav.gallery': '相簿', 'nav.video': '影片', 'nav.contact': '聯絡',
+                'hero.subtitle': '職業網球教練',
+                'hero.title': 'Tim Yuen',
+                'hero.tagline': 'ITF職業球員及認證教練,擁有25年以上執教經驗。由初學者至賽事選手,助您全面提升。',
+                'hero.cta': '聯絡我',
+                'about.label': '關於我', 'about.title': '個人簡介',
+                'about.heading': '25年以上卓越執教經驗',
+                'about.p1': '我是現役ITF職業球員及認證網球教練,持有<strong>英國網球教練協會(BTCA)</strong>及<strong>澳洲職業網球教練協會</strong>的雙重認證。',
+                'about.p2': '無論您是初次拿起球拍,或是備戰正式比賽,我都能為兒童及成人提供各級別的專屬定制課程。',
+                'lang.english': '英語', 'lang.cantonese': '粵語', 'lang.mandarin': '普通話',
+                'stat.years': '執教年資', 'stat.languages': '語言', 'stat.certs': '專業認證',
+                'ach.label': '戰績紀錄', 'ach.title': '比賽成就',
+                'ach.t.itfWimbledon': 'ITF大師賽 溫布頓(封閉賽)',
+                'ach.t.worldMasters': '世界大師運動會(台灣)',
+                'ach.t.etaSZ188': 'ETA深圳第188站',
+                'ach.t.etaSZ181': 'ETA深圳第181站',
+                'ach.t.itfShenzhen': 'ITF大師賽 深圳',
+                'ach.t.itfPattaya': 'ITF大師賽 芭堤雅',
+                'ach.t.fctcA': 'FCTC小型聯賽 A組',
+                'ach.t.fctcB': 'FCTC小型聯賽 B組',
+                'ach.t.ltaFrome': 'LTA 弗羅姆網球公開賽',
+                'ach.t.ltaDownend': 'LTA Downend & Fishpond',
+                'ach.t.ltaKnowle': 'LTA Knowle 18歲以下男子組',
+                'ach.d.singlesR32': '男單32強',
+                'ach.d.singlesQF': '男單八強',
+                'ach.d.singlesRU': '單打亞軍',
+                'ach.d.champions': '冠軍',
+                'ach.d.champion': '冠軍',
+                'ach.d.finalist': '亞軍',
+                'ach.b.wimbledon': '溫布頓', 'ach.b.champion': '冠軍',
+                'gal.label': '賽場風采', 'gal.title': '相簿',
+                'gal.practiceWimbledon': '溫布頓訓練',
+                'gal.grassServe': '草地發球',
+                'gal.serveImpact': '發球擊球瞬間',
+                'gal.sliceBackhand': '草地反手切削',
+                'gal.serveFollow': '發球跟進動作',
+                'gal.hkStadium': '香港網球中心',
+                'gal.hardServe': '硬地發球',
+                'gal.hardAction': '硬地擊球',
+                'gal.matchPoint': '賽末點時刻',
+                'gal.wimbledonCourts': '溫布頓球場',
+                'vid.label': '觀看', 'vid.title': '精彩集錦',
+                'con.label': '聯絡我', 'con.title': '取得聯絡',
+                'con.intro': '歡迎初學者及參賽選手,無論兒童或成人。追蹤我的社交媒體,獲取最新網球內容、技巧及賽事動態。',
+                'con.findme': '社交平台帳號',
+                'footer.text': '&copy; 2025 Tim Yuen Tennis 版權所有。'
+            }
+        };
+
+        const htmlLangAttr = { 'en': 'en', 'zh-CN': 'zh-Hans', 'zh-TW': 'zh-Hant' };
+
+        function setLanguage(lang) {
+            if (!translations[lang]) lang = 'en';
+            const dict = translations[lang];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                const val = dict[key];
+                if (val == null) return;
+                if (el.tagName === 'TITLE') {
+                    document.title = val;
+                } else if (el.hasAttribute('data-i18n-html')) {
+                    el.innerHTML = val;
+                } else {
+                    el.textContent = val;
+                }
+            });
+            document.documentElement.setAttribute('lang', htmlLangAttr[lang] || 'en');
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+            });
+            try { localStorage.setItem('site-lang', lang); } catch (e) {}
+        }
+
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => setLanguage(btn.getAttribute('data-lang')));
+        });
+
+        (function initLang() {
+            let saved = null;
+            try { saved = localStorage.getItem('site-lang'); } catch (e) {}
+            if (!saved) {
+                const nav = (navigator.language || 'en').toLowerCase();
+                if (nav.startsWith('zh')) {
+                    saved = (nav.includes('tw') || nav.includes('hk') || nav.includes('hant')) ? 'zh-TW' : 'zh-CN';
+                } else {
+                    saved = 'en';
+                }
+            }
+            setLanguage(saved);
+        })();
     </script>
 
 </body>
