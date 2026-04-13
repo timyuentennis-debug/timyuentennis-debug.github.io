@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tim Yuen | Professional Tennis Coach</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green-dark: #1a3c2a;
+            --green-mid: #2d6a4f;
+            --green-light: #52b788;
+            --gold: #d4a853;
+            --gold-light: #f0d48a;
+            --cream: #faf8f0;
+            --white: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-mid: #4a4a4a;
+            --text-light: #7a7a7a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background: var(--cream);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+
+        nav.scrolled {
+            background: rgba(26, 60, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.7rem 2rem;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-light);
+        }
+
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .nav-hamburger span {
+            width: 25px;
+            height: 2px;
+            background: var(--white);
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('resources/hero-wimbledon-courts.jpg') center/cover no-repeat;
+            filter: brightness(0.4);
+            transform: scale(1.05);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: var(--white);
+            padding: 0 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 1rem;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-tagline {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border: 2px solid var(--gold);
+            color: var(--gold-light);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .hero-cta:hover {
+            background: var(--gold);
+            color: var(--green-dark);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 24px;
+            height: 24px;
+            border-right: 2px solid rgba(255,255,255,0.6);
+            border-bottom: 2px solid rgba(255,255,255,0.6);
+            transform: rotate(45deg);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--green-light);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--green-dark);
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin: 1.5rem auto 0;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--white);
+        }
+
+        .about-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+        }
+
+        .about-image-wrapper img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .about-image-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: -20px;
+            bottom: -20px;
+            border: 2px solid var(--gold);
+            border-radius: 8px;
+            z-index: -1;
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--green-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--text-mid);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: var(--cream);
+            border-radius: 8px;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--green-dark);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.3rem;
+        }
+
+        /* Languages Badge */
+        .languages {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .lang-badge {
+            padding: 0.4rem 1rem;
+            background: var(--green-dark);
+            color: var(--white);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Achievements Section */
+        .achievements {
+            background: var(--green-dark);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievements .section-label {
+            color: var(--gold-light);
+        }
+
+        .achievements .section-title {
+            color: var(--white);
+        }
+
+        .achievements-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .achievement-card {
+            padding: 2rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            border-left: 3px solid var(--gold);
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-3px);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .achievement-year {
+            font-size: 0.8rem;
+            color: var(--gold-light);
+            letter-spacing: 2px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .achievement-detail {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+
+        .achievement-highlight {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.25rem 0.75rem;
+            background: var(--gold);
+            color: var(--green-dark);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Trophy Showcase */
+        .trophy-showcase {
+            max-width: 900px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .trophy-img {
+            width: 100%;
+            border-radius: 8px;
+            aspect-ratio: 1;
+            object-fit: cover;
+            transition: transform 0.3s;
+            border: 2px solid rgba(212, 168, 83, 0.3);
+        }
+
+        .trophy-img:hover {
+            transform: scale(1.03);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: var(--cream);
+        }
+
+        .gallery-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 300px;
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(26,60,42,0.8) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay-text {
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .gallery-item.wide {
+            grid-column: span 2;
+        }
+
+        .gallery-item.tall {
+            grid-row: span 2;
+        }
+
+        /* Video Section */
+        .video-section {
+            background: var(--white);
+        }
+
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+        }
+
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+
+        /* Contact / Social Section */
+        .contact {
+            background: var(--green-dark);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .contact .section-label {
+            color: var(--gold-light);
+        }
+
+        .contact .section-title {
+            color: var(--white);
+        }
+
+        .contact-intro {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            color: rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .social-link:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .social-link svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--gold-light);
+        }
+
+        .contact-handle {
+            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--gold-light);
+            margin-bottom: 3rem;
+        }
+
+        .contact-handle span {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.6);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: #0d1f15;
+            color: rgba(255,255,255,0.4);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.85rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.92);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 4px;
+            box-shadow: 0 0 60px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            border: none;
+            transition: background 0.3s;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255,255,255,0.25);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(26, 60, 42, 0.98);
+                flex-direction: column;
+                padding: 1.5rem 2rem;
+                gap: 1rem;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-hamburger {
+                display: flex;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .about-image-wrapper::after {
+                display: none;
+            }
+
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trophy-showcase {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-auto-rows: 200px;
+            }
+
+            .gallery-item.wide {
+                grid-column: span 1;
+            }
+
+            .gallery-item.tall {
+                grid-row: span 1;
+            }
+
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .social-link {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Tim Yuen</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#video">Video</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <p class="hero-subtitle">Professional Tennis Coach</p>
+            <h1 class="hero-title">Tim Yuen</h1>
+            <p class="hero-tagline">ITF professional player and certified coach with 25+ years of experience. Elevating players from beginners to tournament competitors.</p>
+            <a href="#contact" class="hero-cta">Get in Touch</a>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-header">
+            <p class="section-label">Who I Am</p>
+            <h2 class="section-title">About Me</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="about-grid fade-in">
+            <div class="about-image-wrapper">
+                <img src="resources/wimbledon-sign.jpg" alt="Tim Yuen at Wimbledon Championships">
+            </div>
+            <div class="about-text">
+                <h3>25+ Years of Coaching Excellence</h3>
+                <p>I am a current ITF professional player and certified tennis coach with qualifications from both the <strong>British Tennis Coaches Association (BTCA)</strong> and the <strong>Australia Tennis Professional Coaches Association</strong>.</p>
+                <p>Whether you're picking up a racket for the first time or preparing for tournament play, I provide tailored coaching for children and adults at every level.</p>
+                <div class="languages">
+                    <span class="lang-badge">English</span>
+                    <span class="lang-badge">Cantonese</span>
+                    <span class="lang-badge">Mandarin</span>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label">Years Coaching</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Languages</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Certifications</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements" id="achievements">
+        <div class="section-header">
+            <p class="section-label">Track Record</p>
+            <h2 class="section-title">Achievements</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="achievements-grid">
+            <div class="achievement-card fade-in">
+                <div class="achievement-year">2025</div>
+                <div class="achievement-title">ITF Masters Wimbledon (Closed)</div>
+                <div class="achievement-detail">Men's Singles R32</div>
+                <span class="achievement-highlight">Wimbledon</span>
+            </div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-year">2025</div>
+                <div class="achievement-title">World Masters Games, Taiwan</div>
+                <div class="achievement-detail">Men's Singles Quarter-finalist</div>
+            </div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-year">2025</div>
+                <div class="achievement-title">ETA Shenzhen 188th</div>
+                <div class="achievement-detail">Singles Runner-up</div>
+            </div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-year">2025</div>
+                <div class="achievement-title">ETA Shenzhen 181st</div>
+                <div class="achievement-detail">Singles Runner-up</div>
+            </div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-year">2024</div>
+                <div class="achievement-title">ITF Masters Shenzhen</div>
+                <div class="achievement-detail">Men's Singles Quarter-finalist</div>
+            </div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-year">2024</div>
+                <div class="achievement-title">ITF Masters Pattaya</div>
+                <div class="achievement-detail">Men's Singles Quarter-finalist</div>
+            </div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-year">2022</div>
+                <div class="achievement-title">FCTC Small League Division A</div>
+                <div class="achievement-detail">Champions</div>
+                <span class="achievement-highlight">Champion</span>
+            </div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-year">2019</div>
+                <div class="achievement-title">FCTC Small League Division B</div>
+                <div class="achievement-detail">Champions</div>
+                <span class="achievement-highlight">Champion</span>
+            </div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-year">2006</div>
+                <div class="achievement-title">LTA Frome Tennis Tournament</div>
+                <div class="achievement-detail">Finalist</div>
+            </div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-year">2003</div>
+                <div class="achievement-title">LTA Downend & Fishpond</div>
+                <div class="achievement-detail">Champion</div>
+                <span class="achievement-highlight">Champion</span>
+            </div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-year">2000</div>
+                <div class="achievement-title">LTA Knowle 18 & Under Boys</div>
+                <div class="achievement-detail">Champion</div>
+                <span class="achievement-highlight">Champion</span>
+            </div>
+            <div class="achievement-card fade-in">
+                <div class="achievement-year">1999</div>
+                <div class="achievement-title">LTA Downend & Fishpond</div>
+                <div class="achievement-detail">Finalist</div>
+            </div>
+        </div>
+
+        <!-- Trophy Showcase -->
+        <div class="trophy-showcase fade-in">
+            <img src="resources/trophy-cup.jpg" alt="Championship trophy" class="trophy-img">
+            <img src="resources/trophy-collection.jpg" alt="Trophy collection" class="trophy-img">
+            <img src="resources/trophies-shelf.jpg" alt="Awards display" class="trophy-img">
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="section-header">
+            <p class="section-label">In Action</p>
+            <h2 class="section-title">Gallery</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item wide" onclick="openLightbox(this)">
+                <img src="resources/doubles-grass-wimbledon.jpg" alt="Doubles match at Wimbledon grass courts">
+                <div class="overlay"><span class="overlay-text">Doubles at Wimbledon</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="resources/serve-grass-1.jpg" alt="Serving on grass court">
+                <div class="overlay"><span class="overlay-text">Grass Court Serve</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="resources/serve-grass-2.jpg" alt="Serve toss on grass">
+                <div class="overlay"><span class="overlay-text">Serve Toss</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="resources/forehand-grass.jpg" alt="Forehand on grass court">
+                <div class="overlay"><span class="overlay-text">Forehand on Grass</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="resources/serve-grass-3.jpg" alt="Serve follow through on grass">
+                <div class="overlay"><span class="overlay-text">Serve Follow-through</span></div>
+            </div>
+            <div class="gallery-item wide" onclick="openLightbox(this)">
+                <img src="resources/hongkong-stadium.jpg" alt="Playing at Hong Kong tennis stadium">
+                <div class="overlay"><span class="overlay-text">Hong Kong Tennis Stadium</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="resources/serve-hardcourt.jpg" alt="Serving on hard court">
+                <div class="overlay"><span class="overlay-text">Hard Court Serve</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="resources/serve-followthrough-hardcourt.jpg" alt="Serve follow through on hard court">
+                <div class="overlay"><span class="overlay-text">Hard Court Action</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="resources/celebration-hardcourt.jpg" alt="Match celebration">
+                <div class="overlay"><span class="overlay-text">Match Point</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="resources/hero-wimbledon-courts.jpg" alt="At Wimbledon courts">
+                <div class="overlay"><span class="overlay-text">Wimbledon Courts</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" aria-label="Close">&times;</button>
+        <img src="" alt="" id="lightboxImg">
+    </div>
+
+    <!-- Video Section -->
+    <section class="video-section" id="video">
+        <div class="section-header">
+            <p class="section-label">Watch</p>
+            <h2 class="section-title">Highlights</h2>
+            <div class="section-divider"></div>
+        </div>
+        <div class="video-container fade-in">
+            <video controls preload="metadata" poster="resources/serve-grass-1.jpg">
+                <source src="resources/tennis-highlights.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <!-- Contact / Social Section -->
+    <section class="contact" id="contact">
+        <div class="section-header">
+            <p class="section-label">Let's Connect</p>
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="section-divider"></div>
+        </div>
+        <p class="contact-intro">
+            Beginners to tournament players are welcome, whether children or adults.
+            Follow me on social media for my latest tennis content, tips, and match updates.
+        </p>
+        <div class="contact-handle">
+            <span>Find me everywhere at</span>
+            @tenniscoachhk
+        </div>
+        <div class="social-links">
+            <!-- REPLACE # with your actual social media URLs -->
+            <a href="https://www.instagram.com/tenniscoachhk" target="_blank" rel="noopener" class="social-link">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                Instagram
+            </a>
+            <a href="https://www.youtube.com/@tenniscoachhk" target="_blank" rel="noopener" class="social-link">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                YouTube
+            </a>
+            <a href="https://www.threads.net/@tenniscoachhk" target="_blank" rel="noopener" class="social-link">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.592 12c.025 3.086.716 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.276 3.26-.883 1.097-2.1 1.692-3.455 1.763h-.003c-1.016-.025-1.86-.354-2.51-.977-.59-.568-.928-1.3-1.003-2.18-.131-1.533.658-2.946 2.133-3.828.985-.587 2.17-.912 3.527-.97l.168-.003c.68 0 1.306.07 1.876.21-.08-.49-.207-.928-.387-1.298-.348-.724-.976-1.092-1.866-1.1h-.013c-.674 0-1.258.224-1.736.667l-1.407-1.501c.781-.73 1.828-1.116 3.024-1.145h.032c1.455.013 2.586.567 3.357 1.644.675.938.988 2.17 1.043 3.25.512.312.96.682 1.337 1.11.742.842 1.227 1.9 1.44 3.145.283 1.66.006 3.542-1.312 4.854C18.1 22.88 15.725 23.975 12.186 24zm.056-9.696c-.986.044-1.778.267-2.398.62-.874.5-1.3 1.2-1.237 1.93.043.498.222.877.548 1.156.38.327.887.495 1.508.512.936-.048 1.68-.416 2.276-1.156.472-.587.8-1.375.972-2.346-.516-.16-1.08-.245-1.672-.245h-.002l.005-.471z"/></svg>
+                Threads
+            </a>
+            <a href="https://www.tiktok.com/@tenniscoachhk" target="_blank" rel="noopener" class="social-link">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                TikTok
+            </a>
+            <a href="#" target="_blank" rel="noopener" class="social-link">
+                <!-- Xiaohongshu / RedNote -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 4a2 2 0 012-2h16a2 2 0 012 2v16a2 2 0 01-2 2H4a2 2 0 01-2-2V4zm4.5 3a.75.75 0 00-.75.75v8.5a.75.75 0 001.5 0v-3.5h3v3.5a.75.75 0 001.5 0v-8.5A.75.75 0 0011 7H6.5zm.75 4.25v-2.75H10.5v2.75H7.25zM13 7.75a.75.75 0 011.5 0v3h2v-3a.75.75 0 011.5 0v8.5a.75.75 0 01-1.5 0v-4h-2v4a.75.75 0 01-1.5 0v-8.5z"/></svg>
+                RedNote (Xiaohongshu)
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Tim Yuen Tennis. All rights reserved.
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('open');
+        }
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('open');
+            });
+        });
+
+        // Fade-in on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Lightbox
+        function openLightbox(el) {
+            const img = el.querySelector('img');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+
+</body>
+</html>
