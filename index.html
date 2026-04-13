@@ -441,13 +441,30 @@
             gap: 1.5rem;
         }
 
-        .trophy-img {
-            width: 100%;
+        .trophy-showcase-item {
+            background: rgba(255,255,255,0.04);
             border-radius: 8px;
-            aspect-ratio: 1;
-            object-fit: cover;
-            transition: transform 0.3s;
+            padding: 1rem;
             border: 2px solid rgba(212, 168, 83, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .trophy-showcase-item:hover {
+            transform: scale(1.03);
+        }
+
+        .trophy-img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 4px;
         }
 
         .trophy-img:hover {
@@ -938,7 +955,7 @@
                 max-width: 320px;
             }
 
-            .trophy-img {
+            .trophy-showcase-item {
                 aspect-ratio: 4/3;
             }
 
@@ -1176,9 +1193,15 @@
 
         <!-- Trophy Showcase -->
         <div class="trophy-showcase fade-in">
-            <img src="resources/trophy-cup.jpg" alt="Championship trophy" class="trophy-img">
-            <img src="resources/trophy-collection.jpg" alt="Trophy collection" class="trophy-img">
-            <img src="resources/trophies-shelf.jpg" alt="Awards display" class="trophy-img">
+            <div class="trophy-showcase-item">
+                <img src="resources/trophy-cup.jpg" alt="Championship trophy" class="trophy-img">
+            </div>
+            <div class="trophy-showcase-item">
+                <img src="resources/trophy-collection.jpg" alt="Trophy collection" class="trophy-img">
+            </div>
+            <div class="trophy-showcase-item">
+                <img src="resources/trophies-shelf.jpg" alt="Awards display" class="trophy-img">
+            </div>
         </div>
     </section>
 
