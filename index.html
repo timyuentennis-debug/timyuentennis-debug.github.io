@@ -156,7 +156,7 @@
         .hero-bg {
             position: absolute;
             inset: 0;
-            background: url('resources/hero-wimbledon-courts.jpg') 30% center / cover no-repeat;
+            background: url('resources/hero-wimbledon-courts.jpg') center / cover no-repeat;
             filter: brightness(0.4);
             transform: scale(1.05);
         }
@@ -798,6 +798,10 @@
             /* Hero */
             .hero {
                 min-height: 100svh;
+            }
+
+            .hero-bg {
+                background-position: 30% center;
             }
 
             .hero-tagline {
